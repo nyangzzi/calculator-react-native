@@ -1,15 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, ButtonTypes } from './components/Button';
+import { useState } from 'react';
 
 export default function App() {
-  const isError = true;
+  const [result, setResult] = useState(0);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>RN Calc App</Text>
-      <Text style={[styles.text, styles.error]}>error</Text>
-      <Text style={[styles.text, isError && styles.error]}>error test</Text>
-      <StatusBar style="auto" />
+      <View style={styles.resultContainer}>
+        {/* 결과 */}
+        <Text style={styles.resultText}>{result}</Text>
+      </View>
+      <View style={styles.buttonContainer}>{/* 버튼 */}</View>
     </View>
   );
 }
@@ -20,13 +22,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'stretch',
   },
-  text: {
-    fontSize: 30,
-    fontWeight: '700',
-    color: 'green',
+  resultContainer: {
+    backgroundColor: '#000000',
+    flex: 1,
+    justifyContent: 'felx-end',
+    alignItems: 'flex-end',
   },
-  error: {
-    color: 'red',
+  buttonContainer: {
+    flex: 1,
+  },
+  resultText: {
+    fontSize: 60,
+    fontWeight: 70,
+    color: '#ffffff',
+    padding: 30,
   },
 });
