@@ -26,7 +26,15 @@ export default function App() {
       <View style={[styles.buttonContainer, { height: width }]}>
         {/* 버튼 */}
         <View style={styles.leftPad}>
-          <View style={styles.number}></View>
+          <View style={styles.number}>
+            {Array.from({ length: 9 }).map((_, index) => (
+              <Button
+                title={index + 1}
+                onPress={() => {}}
+                buttonStyle={{ width: '33.1%', height: '33.1%' }}
+              />
+            ))}
+          </View>
           <View style={styles.bottom}>
             <Button title="0" onPress={() => {}} buttonStyle={{ flex: 2 }} />
             <Button
@@ -80,6 +88,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     gap: 1,
+    backgroundColor: '#000000',
   },
   resultText: {
     fontSize: 60,
@@ -89,7 +98,10 @@ const styles = StyleSheet.create({
   leftPad: { flex: 3, gap: 1 },
   number: {
     flex: 3,
-    backgroundColor: 'blue',
+    flexDirection: 'row',
+    gap: 1,
+    flexWrap: 'wrap-reverse',
+    justifyContent: 'space-between',
   },
   bottom: {
     flexDirection: 'row',
