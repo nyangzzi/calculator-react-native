@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { Button, ButtonTypes } from './components/Button';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
@@ -12,18 +11,25 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="light" />
 
-      <View style={styles.resultContainer}>
+      <View style={[styles.resultContainer, { flex: 1 }]}>
         {/* 결과 */}
         <Text style={styles.resultText}>{result}</Text>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={[styles.buttonContainer, { height: width }]}>
         {/* 버튼 */}
-        <view style={styles.leftPad}>
-          <view style={styles.number}></view>
-          <view style={styles.bottom}></view>
-        </view>
+        <View style={styles.leftPad}>
+          <View style={styles.number}></View>
+          <View style={styles.spacer} />
+          <View style={styles.bottom}>
+            <View style={styles.spacer} />
+          </View>
+        </View>
 
-        <view style={styles.operator}></view>
+        <View style={styles.spacer} />
+
+        <View style={styles.operator}>
+          <View style={styles.spacer} />
+        </View>
       </View>
     </View>
   );
@@ -40,23 +46,34 @@ const styles = StyleSheet.create({
   resultContainer: {
     backgroundColor: '#000000',
     flex: 1,
-    justifyContent: 'felx-end',
+    justifyContent: 'flex-end',
     alignItems: 'flex-end',
   },
   buttonContainer: {
-    flex: 1,
     flexDirection: 'row',
   },
   resultText: {
     fontSize: 60,
-    fontWeight: 70,
     color: '#ffffff',
-    padding: 30,
+    padding: 20,
   },
-  leftPad: {},
-  number: {},
+  leftPad: { flex: 3 },
+  number: {
+    flex: 3,
+    backgroundColor: 'blue',
+  },
   bottom: {
     flexDirection: 'row',
+    flex: 1,
+    backgroundColor: 'orange',
   },
-  operator: {},
+  operator: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  spacer: {
+    width: 1,
+    height: 1,
+    alignItems: 'stretch',
+  },
 });
