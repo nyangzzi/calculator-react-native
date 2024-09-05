@@ -1,6 +1,14 @@
 import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import Button, { ButtonTypes } from './components/Button';
+
+const Operators = {
+  CLEAR: 'C',
+  MINUS: '-',
+  PLUS: '+',
+  EQUAL: '=',
+};
 
 export default function App() {
   const [result, setResult] = useState(0);
@@ -19,16 +27,36 @@ export default function App() {
         {/* 버튼 */}
         <View style={styles.leftPad}>
           <View style={styles.number}></View>
-          <View style={styles.spacer} />
           <View style={styles.bottom}>
-            <View style={styles.spacer} />
+            <Button title="0" onPress={() => {}} buttonStyle={{ flex: 2 }} />
+            <Button
+              title={Operators.EQUAL}
+              onPress={() => {}}
+              buttonType={ButtonTypes.OPERATOR}
+              buttonStyle={{ flex: 1 }}
+            />
           </View>
         </View>
 
-        <View style={styles.spacer} />
-
         <View style={styles.operator}>
-          <View style={styles.spacer} />
+          <Button
+            title={Operators.CLEAR}
+            onPress={() => {}}
+            buttonType={ButtonTypes.OPERATOR}
+            buttonStyle={{ flex: 1 }}
+          />
+          <Button
+            title={Operators.MINUS}
+            onPress={() => {}}
+            buttonType={ButtonTypes.OPERATOR}
+            buttonStyle={{ flex: 1 }}
+          />
+          <Button
+            title={Operators.PLUS}
+            onPress={() => {}}
+            buttonType={ButtonTypes.OPERATOR}
+            buttonStyle={{ flex: 2 }}
+          />
         </View>
       </View>
     </View>
@@ -51,13 +79,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
+    gap: 1,
   },
   resultText: {
     fontSize: 60,
     color: '#ffffff',
     padding: 20,
   },
-  leftPad: { flex: 3 },
+  leftPad: { flex: 3, gap: 1 },
   number: {
     flex: 3,
     backgroundColor: 'blue',
@@ -65,15 +94,10 @@ const styles = StyleSheet.create({
   bottom: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: 'orange',
+    gap: 1,
   },
   operator: {
     flex: 1,
-    backgroundColor: 'red',
-  },
-  spacer: {
-    width: 1,
-    height: 1,
-    alignItems: 'stretch',
+    gap: 1,
   },
 });
