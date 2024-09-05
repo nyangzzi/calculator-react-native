@@ -9,15 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "eslint-plugin-react-hooks": "^4.6.2",
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-native": "0.74.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@eslint/js": "^9.9.1",
-    "eslint": "^9.9.1",
+    "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.35.1",
     "globals": "^15.9.0"
   },
