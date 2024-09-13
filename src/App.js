@@ -82,7 +82,11 @@ export default function App() {
             ))}
           </View>
           <View style={styles.bottom}>
-            <Button title="0" onPress={() => {}} buttonStyle={{ flex: 2 }} />
+            <Button
+              title="0"
+              onPress={() => onPressNum(0)}
+              buttonStyle={{ flex: 2 }}
+            />
             <Button
               title={Operators.EQUAL}
               onPress={() => {
